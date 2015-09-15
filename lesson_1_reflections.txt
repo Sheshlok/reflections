@@ -1,0 +1,74 @@
+1. How did viewing a diff between two versions of a file help you see the bug that was introduced?
+A. I could directly compare relevant lines instead of scanning the entire
+code for differences (Command used: diff -u old_file new_file)
+
+2. How could having easy access to the entire history of a file make you 
+a more efficient programmer in the long term?
+A. As it helps me track changes made either by me (for e.g. Dropbox, Google Docs)or ny anyone (esp. if one is collabrating with people on a document, for e.g., when one uses Google Docs/Wikipedia) against a baseline.
+
+3. What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs. having versions automatically saved, like Google docs does?
+
+A. Pros: 
+   1. You choose what you want to change and subsequently, upload. In other words, you create your own checkpoints, which gives you a lot of flexibility. Also, you don't end up with a laundry list of useless non-trivial commits as created by Autosave - Autonomy
+   2. If you are sensible enough, then the two versions will actually be 
+   meaningful. 
+   Git systems make it much more likely that each individual version will represent a logical change. In Git terminology, these user created technologies are called 'Commits'. Commits are the basic building blocks of Git, each one representing a version of the content at one point in time. Git requires the user to supply a commit message each time a 'commit' is created.
+
+   Cons:
+   1. You might forget to save your intended changes - Manual Errors
+   
+ 4. Why do you think some version control systems, like Git, allow saving multiple files in one comit, while others, like Google Docs, treat each file separately ?
+
+ A. Because developers usually have packages which contain multiple files, that need to be compiled and distributed. Uploading each one separately is non-efficient and a pain in the ass.
+
+
+ 5. How can you use the commands 'git log' and 'git diff' to view the history of files ?
+
+A. 'Git log' gives you every commit that has ever been made starting with the most recent. What you get is an 'id', 'author', 'date', and 'commit msg'. ID is sort of like a serial number and 'commit msg' explains what has changed since the last commit. 
+B. 'Git diff' is similar to the 'diff -u old_file new_file' command but instead of comparing two files, it can compare the different versions of the files within git.
+Rule of Thumb <Rules are meant to be broken finally> 
+1. git diff <id of commit you find using git log, ---> <id of commit BELOW/ABOVE it, +++>
+2. Each commit must have ONE, CLEAR, LOGICAL purpose.
+
+
+ 6. How might using the version control make you more confident to make changes that could break something?
+
+ A. I don't know yet. I guess it has something to do with the way 'virtualenv' works.
+
+ 7. Now that you have your workspace setup, what do you want to try using Git for ?
+
+ A. To :
+ 1. Use Git for developing my own packages in collaboration with othe people.
+ 2. See how version control systems and collaboration in coding works.
+
+NOTES
+8. Feature Comparison Charts:
+				Any Editor		Use Offline		Manual Saving
+
+Manual Saving 		Y 				Y 				Y
+Dropbox				Y 				N 				N
+Google Docs   		N 				N  				N
+Wikipedia			N 				N 				Y
+Git  				Y 				Y  				Y
+SVN  				Y 				N 				Y
+
+
+9. When you work on a project, you will often have multiple files that you want to track together. Git calls such a collection of files a repository. When you save a version of your files in Git or in other words when you make a commit, you will save a version of every file in your repository.
+
+
+10. Git Error and Warnings:
+
+Should not be doing an octopus
+Octopus is a strategy Git uses to combine many different versions of the code together. This message can appear if you try to use this strategy in an inappropriate situation
+
+You are in a 'detached HEAD' state
+HEAD is what Git calls the commit you are currently on. You can "detach" the HEAD by switching to a previous commit. Its not a bad thing to detach the HEAD. Git just warns you so that you'll realize you are doing it.
+
+11. Gitcheckout: Similar to restoring a previous version. One reason might be a bug was introduced, but you are not sure which commit introduced it.
+
+12. Similarities/Differences between copying and cloning
+A. If someone else gives you the location of their directory or repository you can copy it to your computer using git clone. For copying a directory from one computer to another, use the command "scp" 
+B. Git Clone also copies the commit history of the repository while copying does not do so.
+C. Needless to say, in both cases, if you make changes to the copied directory or cloned repository, the original will not change.
+D. Again, in both cases, the state of every file in the directory or repository is copied.
+
