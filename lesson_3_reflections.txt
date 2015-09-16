@@ -1,0 +1,23 @@
+# Caching your Github password: Everytime you save changes to Github via the command line, you'll need to retype your password to prove that you have permission to modify the repository. Since this gets annoying very quickly, many people like to set up password caching, which will let you type your password once and have it auto-filled on that computer in the future.
+https://help.github.com/articles/caching-your-github-password-in-git/
+
+KEEPING YOUR REPOSITORIES IN SYNC:
+1. As is the case with many cloud-hosted systems, pushing any repository from your system to Github involves syncing between the repository on your computer and the version hosted on Github, the version that you will see on the website. When interacting with Github, the information that you send and receive are in the form of Git commmits. Github repositories are hosted on Github servers, they are not directly accessible (No need to worry about WD/staging area). SYNCING DOES NOT HAPPEN AUTOMATICALLY.
+
+2. Github does not allow cloning TO their servrs. To allow for syncing data between 2 repositories, Git has a concept of a remote repository. (empty repository with known location)
+
+3. The most common way to send and receive data is by specifying a branch. So, all we need to do is push the master branch and all the commits will be sent since they are all reachable by the commit at the tip of master. If any commits are already there, Git would not bother sending them as it is inefficient.
+
+ADDING A REMOTE REPOSITORY
+1. Initialize this with README - If no content/commits, check this otherwise not since you cannot clone a repository with no comments.
+2. If you only have 1 remote, its standard to name it origin
+
+sheshloksamal (master) reflections $ git remote
+sheshloksamal (master) reflections $ git remote add origin https://github.com/Sheshlok/reflections.git
+sheshloksamal (master) reflections $ git remote
+origin
+sheshloksamal (master) reflections $ git remote -v
+origin	https://github.com/Sheshlok/reflections.git (fetch)
+
+3. $ git push <remote I want to send changes to> <local branch that I want to push>
+origin	https://github.com/Sheshlok/reflections.git (push)

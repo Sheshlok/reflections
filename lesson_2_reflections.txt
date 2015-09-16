@@ -1,1 +1,87 @@
-Initializing a Repository: ls -a
+# Initializing a Repository: ls -a
+# Running '$ git log' next will give an error "fatal: bad default revision 'HEAD' "that lets you know that you can't view your commit history since there aren't any commits yet.
+# To see it really is a git repository, you can run git status.
+
+1. What happens when you initialize a repository ? Why do you need to do it?
+A. To create a .git file that will contain version histories of the files in repository. '.git' repositories (which is obviously a hidden directory) stores a bunch of metadata about the history of the repository since it was created.
+
+# Use 'git add' to add whatever files you would like to add to the staging area. If you accidentally add a file, remove it by using 'git reset'
+
+2. How is the staging area different from the WD and the repository? What value do you think it offers?
+
+A. It is an intermediate stage between the normal WD and the final repository. More control/more flexibility.
+Also, its where the bundling of multiple files into a single commit takes place.
+
+# To run a commit message via the command line, type:
+$ git commit -m "Commit Message" instead of just $ git commit
+Commit Style Guide: http://udacity.github.io/git-styleguide/
+
+# If there is any difference between the 2 commits, including the author or the time it was created, the commits will have different ids.(http://git-scm.com/book/en/v2/Git-Internals-Git-Objects)
+
+3. How you can use the staging area to make sure you have one commit per logical change
+
+A. Run '$ git diff' to see the diff between files in staging area and WD. Make sure you only see only 1 logical change if you want to adhere to this rule.
+
+# Labels for your commits are called branches. Master is the name given to main branch in most git repositories. This "Master" label is attached to the latest commit. 
+# $ git branch
+* master
+
+4. What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+
+A. Running trial versions, alpha-beta testing, diff languages etc. Branches help do that as I can work with my main branch and build variations in my trial branches.
+As per Mike Wales (Web Development Course Developer at Udacity), anytime he does something different, he creates a new branch. He thinks of it as a "context switching", be it switching to work on a new feature, or whether he is going to correct a bug, he creates a new branch at that time.
+Git branches help you keep your projects organized especially when you are showing those projects publicly. You have your master branch 
+(PRODUCTION QUALITY branch that never breaks, always works) and then you have your DEVELOPMENT BRANCH, where active work is taking place on your project (you fully expect them to work).
+Branches therefore, are also good when not only collaborating publicly but also when collaborating with yourself.
+# Remote branches mean those branches are not created by me.
+# To visualize branches, run $ git log --graph --oneline (to make the output shorter and easier to visualize) master coins (branches you want to see)
+# Head just means current commit.
+# $ git checkout -b new_branch_name is equivalent to running two commands $ git branch new_branch_name and $ git checkout new_branch_name
+
+5. How do the diagrams help you visualize the branch structure?
+A. By understanding where we are at and where we can go from there. What is disconcerting though is this unidirectional flow to the base parent. Perhaps simplicity always wins. :)
+
+# How to combine multiple branches (if finished) into a single version? PRETTY IMPRESSIVE
+Git Merge Algo is so simple. It relies on the fact that the user is sane, his code works and is valuable.
+# ***************************************************************
+*   d32beb5 Merge branch 'coins'
+|\  
+| * 354dfdd Make ships able to spawn on coins
+| * 0c6daf1 Make it possible to collect coins
+| * a3c0ae4 Create helper functions
+| * 656b02e First pass at adding coins
+* | 27286da Add delay back to the bullets correctly.
+* | 5ce8580 Add delay back to bullets
+* | 3884eab Add color
+* | 3e42136 now using requestAnimationFrame
+* | 4035769 frame interval was set wrong after game was paused
+* | 25ede83 a couple missing ends with the ipad version
+* | df03538 I can't spell 'screen' apparently :)
+|/  
+* b0678b1 Revert controls
+* f19cb1b Fix typo in space
+* 75928a9 Use space for movement and enter for shooting
+* ac83b72 mostly finished ipad version
+* 7ca4826 trying to get div touch controls to work
+* 3cb406e first pass at ipad controls
+* fe7993e now capturing down key so people don't accidently scroll the page
+* 343935f added license
+* 80f3bc7 increased canvas size
+
+#*************************************************************
+# $ git show shows the changes in the commit vs. its parent
+# $ git branch -d coins (Only deletes the labels, not the commits. They can be reached by master branch
+)
+
+Q. What is the result of merging two branches together? Why do we represent it in the way we do?
+
+A. Create a single master file (Final Production Quality branch incorporating developmental work). This is the most logical way to represent it.
+
+Q. What are the pros and cons of Git's automatic merging vs. always doing the merging manually ?
+
+Pros: It merges the files automatically in most cases. Areas with conflicts are relatively smaller. Scanning manually thousands of lines of code is comparatively so primitive.
+
+Cons: It is not sufficiently developed yet. It still needs manual intervention in simple cases. To outgrow that, it would need pretty sophisticated machine learning algos.
+
+
+
